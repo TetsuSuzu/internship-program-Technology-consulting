@@ -72,11 +72,18 @@
 > 📸 **【スクショ⑤：ターミナルの開き方】**
 
 2. 画面の下に黒い入力欄（ターミナル）が出る
-3. 次の文字を入力して **Enter** を押す：
+3. まず `index.html` がある **handson フォルダに移動**して、サーバを立てます。
+   次の2行を1行ずつ入力して **Enter** を押す：
 
    ```bash
+   cd handson
    python3 -m http.server 8000
    ```
+
+   > 💡 移動せずに1コマンドで済ませたい場合：
+   > ```bash
+   > python3 -m http.server 8000 --directory handson
+   > ```
 
 4. `Serving HTTP on ... port 8000 ...` と表示されたら成功！
 

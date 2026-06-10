@@ -34,20 +34,52 @@ internship-program-Technology-consulting/
 │   ├── 05_ペアプログラミング運営.md
 │   ├── 06_静的サイトホスティング方針.md
 │   └── 07_内製化支援の文脈と課題の渡し方.md
-└── handson/                          ← 当日使うハンズオン教材
-    ├── index.html                    ← 学生が編集するテンプレート
-    ├── style.css
-    ├── README.md
-    └── Codespacesプレビュー手順書.md  ← 配布用（スクショ差し込み前提）
+├── handson/                          ← 当日使うハンズオン教材
+│   ├── index.html                    ← 学生が編集するテンプレート
+│   ├── style.css
+│   ├── README.md
+│   └── Codespacesプレビュー手順書.md  ← 配布用（スクショ差し込み前提）
+├── tests/                            ← UIテスト（発展・任意）
+│   ├── portal.spec.js                ← Playwright テスト
+│   └── Playwrightテスト手順書.md      ← 配布用
+├── playwright.config.js
+└── package.json
 ```
 
 ---
 
 ## 🚀 ハンズオンの始め方（学生向け）
 
-1. `handson/` を Codespaces で開く
+1. このリポジトリを Codespaces で開く（`< > Code` → `Codespaces` → `Create codespace on main`）
 2. `handson/Codespacesプレビュー手順書.md` の通りに進める
 3. `index.html` を自分の内容に書きかえ、プレビューで表示する
+
+### ▶ index.html を Codespaces で動かすコマンド
+
+Codespaces のターミナルで、次の2行を実行します。
+
+```bash
+cd handson
+python3 -m http.server 8000
+```
+
+→ `Serving HTTP on ... port 8000` と出たら、右下の **「Open in Browser」** か、
+下部 **PORTS** タブの `8000` の🌐をクリックすると `index.html` が表示されます。
+
+> 1コマンドで済ませたい場合（フォルダ移動なし）：
+> ```bash
+> python3 -m http.server 8000 --directory handson
+> ```
+
+### 🧪 UIテストを動かすコマンド（発展・任意）
+
+```bash
+npm install -D @playwright/test
+npx playwright install --with-deps chromium
+npx playwright test
+```
+
+詳しくは `tests/Playwrightテスト手順書.md` を参照。
 
 ---
 
